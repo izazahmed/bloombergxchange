@@ -1,0 +1,255 @@
+{
+	"info": {
+		"_postman_id": "4ef6e584-56f8-4eee-bb59-905aef94b976",
+		"name": "Bloomber_DailyExchangeRate",
+		"description": "Financial Instrument Quote API with Daily Exchange Rates\n\nContact Support: \n{\n\nName : API Team\n\nEmail : apigateway-support@slb.com\n\n}",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "exchange rate service for currencies",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-apikey",
+						"value": ""
+					}
+				],
+				"url": {
+					"raw": "https://{{apigee.domain}}/exchangerate/exchangerate?ticker-symbol=<string>&unique-identifier-type=<string>&unique-identifier-code=<string>&rate-source=<string>&rate-date=<string>&price-type=<string>",
+					"protocol": "https",
+					"host": [
+						"{{apigee.domain}}"
+					],
+					"path": [
+						"exchangerate",
+						"exchangerate"
+					],
+					"query": [
+						{
+							"key": "ticker-symbol",
+							"value": "<string>",
+							"description": "A ticker symbol is an arrangement of characters. Usually letters. Representing particular currencies. We can use it beyond just currencies. Eg. USDCOP."
+						},
+						{
+							"key": "unique-identifier-type",
+							"value": "<string>",
+							"description": "Unique identification code used to identify security exchange. Eg. FIGI"
+						},
+						{
+							"key": "unique-identifier-code",
+							"value": "<string>",
+							"description": "Unique identifier that identifies currencies as well as individual exchanges on which they trade. It is a 15-character alpha-numerical code that serves for uniform unique global identification. Eg. BBG0013HS3L6"
+						},
+						{
+							"key": "rate-source",
+							"value": "<string>",
+							"description": "Source of the rate e.g. central bank, private banks, CITI, JP Morgan etc. Eg. TRM"
+						},
+						{
+							"key": "rate-date",
+							"value": "<string>",
+							"description": "need to confirm which time zone convention to follow. Eg. 10/1/2019"
+						},
+						{
+							"key": "price-type",
+							"value": "<string>",
+							"description": "Type of daily exchange rate e.g. Daily sale, Daily buy, Daily average etc. Eg. ASK"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Invalid Ticker symbol or Unique Identification Type Code and Type supplied",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-apikey",
+								"value": ""
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/exchangerate?ticker-symbol=<string>&unique-identifier-type=<string>&unique-identifier-code=<string>&rate-source=<string>&rate-date=<string>&price-type=<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"exchangerate"
+							],
+							"query": [
+								{
+									"key": "ticker-symbol",
+									"value": "<string>"
+								},
+								{
+									"key": "unique-identifier-type",
+									"value": "<string>"
+								},
+								{
+									"key": "unique-identifier-code",
+									"value": "<string>"
+								},
+								{
+									"key": "rate-source",
+									"value": "<string>"
+								},
+								{
+									"key": "rate-date",
+									"value": "<string>"
+								},
+								{
+									"key": "price-type",
+									"value": "<string>"
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				},
+				{
+					"name": "successful operation",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-apikey",
+								"value": ""
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/exchangerate?ticker-symbol=<string>&unique-identifier-type=<string>&unique-identifier-code=<string>&rate-source=<string>&rate-date=<string>&price-type=<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"exchangerate"
+							],
+							"query": [
+								{
+									"key": "ticker-symbol",
+									"value": "<string>"
+								},
+								{
+									"key": "unique-identifier-type",
+									"value": "<string>"
+								},
+								{
+									"key": "unique-identifier-code",
+									"value": "<string>"
+								},
+								{
+									"key": "rate-source",
+									"value": "<string>"
+								},
+								{
+									"key": "rate-date",
+									"value": "<string>"
+								},
+								{
+									"key": "price-type",
+									"value": "<string>"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n \"tickerSymbol\": \"<string>\",\n \"uniqueIdentifierType\": \"<string>\",\n \"uniqueIdentifierCode\": \"<string>\",\n \"rateSource\": \"<string>\",\n \"rateDate\": \"<string>\",\n \"rateTime\": \"<string>\",\n \"askRate\": \"<number>\",\n \"bidRate\": \"<number>\",\n \"highRate\": \"<number>\",\n \"lowRate\": \"<number>\",\n \"lastRate\": \"<number>\"\n}"
+				}
+			]
+		},
+		{
+			"name": "API to get list of supported currencies",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-apikey",
+						"value": ""
+					}
+				],
+				"url": {
+					"raw": "https://{{apigee.domain}}/exchangerate/currencies",
+					"protocol": "https",
+					"host": [
+						"{{apigee.domain}}"
+					],
+					"path": [
+						"exchangerate",
+						"currencies"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "successful operation",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-apikey",
+								"value": ""
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/currencies",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"currencies"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n \"currencies\": [\n  \"<string>\",\n  \"<string>\"\n ]\n}"
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"id": "baseUrl",
+			"key": "baseUrl",
+			"value": "https://apigateway.evq.it.slb.com/exchangerate",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}

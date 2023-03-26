@@ -1,0 +1,54 @@
+sims:
+  datasource:
+    elkurl: x.x.x.x
+    elkport: xxxx
+    elkusername: xxx
+    elkpassword: yyyy
+bloomberg:
+  cman:
+    usernumber: 23536629
+p12:
+  pwd: BPEXJCPE
+  file:
+    path: src/main/config/DLWSCert.p12
+wsdl:
+  location: /src/main/resources/wsdl/dlws.wsdl
+elasticsearch:
+  currency:
+    index:
+      name: bloomberg_currencies
+logging:
+  level:
+    org.elasticsearch.client.sniff.ElasticsearchNodesSniffer: ERROR
+
+ 
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+  datasource:
+    url: ${sims.datasource.ELK_URL}
+    username: ${ELK_USERNAME}
+    password: ${ELK_PASSWORD}
+bloomberg:
+  cman:
+    usernumber: 23536629
+p12:
+  pwd: BPEXJCPE
+  file:
+    path: DLWSCert.p12
+wsdl:
+  location: dlws.wsdl
+elasticsearch:
+  currency:
+    index:
+      name: bloomberg_currencies
+logging:
+  level:
+    org.elasticsearch.client.sniff.ElasticsearchNodesSniffer: ERROR
+ 
+ 
+ 
+
+
